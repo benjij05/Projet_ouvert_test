@@ -1,23 +1,29 @@
-const catalogue = {
-    "apl-demande": {
+const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
+    "apl-demande": { //Clé/ID pour identifier la vidéo
         titre: "Demander les APL",
-        description: "Tutoriel complet pour remplir votre dossier CAF en ligne sans erreurs.",
-        youtubeId: "jHeQFMSogEY", // Exemple: Si l'URL est youtube.com/watch?v=dQw4w9WgXcQ, l'ID est dQw4w9WgXcQ
+        description: "Tutoriel complet pour remplir votre dossier CAF.",
+        youtubeId: "jHeQFMSogEY",
         duree: "4 min",
-        categorie: "Logement"
+        categorie: "logement",  // Doit correspondre à l'ID dans le HTML
+        image: "https://via.placeholder.com/300x180", //image miniature
+        tags: ["APL", "CAF", "Aide"] // les badges
     },
     "hlm-inscription": {
         titre: "Demander un logement social",
-        description: "Les étapes pour s'inscrire sur le fichier national des HLM.",
-        youtubeId: "autre_id_youtube",
+        description: "Les étapes pour s'inscrire sur le fichier national.",
+        youtubeId: "BJwwu3JOKA0",
         duree: "5 min",
-        categorie: "Logement"
+        categorie: "logement",
+        image: "https://via.placeholder.com/300x180",
+        tags: ["HLM", "Social", "Demande"]
     },
     "compte-ameli": {
         titre: "Créer son compte Ameli",
         description: "Accédez à vos remboursements de santé en ligne.",
         youtubeId: "id_video_sante",
         duree: "3 min",
-        categorie: "Santé"
+        categorie: "sante",
+        image: "https://via.placeholder.com/300x180",
+        tags: ["Sécu", "Ameli", "Compte"]
     }
 };

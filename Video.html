@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visionnage - Le Déclic</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Un peu de CSS spécifique pour le lecteur vidéo */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Ratio 16:9 pour YouTube */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            background: black;
+            margin-bottom: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .btn-retour { display: inline-block; margin-bottom: 20px; color: #ff6b35; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav class="entete">
+        <div class="logo">
+            <img src="Assets/logo_declic.png" alt="Logo">
+            <div><strong>Le Déclic</strong><br><small>Réduire la fracture numérique</small></div>
+        </div>
+        <a href="index.html" class="bouton-contact">Retour accueil</a>
+    </nav>
+
+    <main class="container" style="margin-top: 40px;">
+        <a href="index.html" class="btn-retour">← Retour aux catégories</a>
+        
+        <h1 id="titre-video">Chargement...</h1>
+        
+        <div class="video-container">
+            <iframe id="player-youtube" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="card">
+            <h3>À propos de cette démarche</h3>
+            <p id="desc-video">Description en cours de chargement...</p>
+        </div>
+    </main>
+
+    <script src="data.js"></script>
+    <script>
+        // 1. On regarde l'URL pour trouver l'ID (ex: video.html?id=apl-demande)
+        const params = new URLSearchParams(window.location.search);
+        const videoId = params.get('id');
+
+        // 2. On cherche les infos dans notre fichier data.js
+        const info = catalogue[videoId];
+
+        // 3. Si on trouve la vidéo, on met à jour la page
+        if (info) {
+            document.getElementById('titre-video').innerText = info.titre;
+            document.getElementById('desc-video').innerText = info.description;
+            // On construit le lien YouTube
+            document.getElementById('player-youtube').src = "https://www.youtube.com/embed/" + info.youtubeId;
+            document.title = info.titre + " - Le Déclic";
+        } else {
+            document.getElementById('titre-video').innerText = "Vidéo introuvable";
+        }
+    </script>
+</body>
+</html>

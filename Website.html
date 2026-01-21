@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"> <!--L'encodage des caractères.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Adapte la largeur de la page à la largeur de l'écran du téléphone.-->
+    <title>Le declic</title> <!--le titre de la page web-->
+    <link rel="stylesheet" href="style.css"> <!--connecter à notre CSS-->
+</head>
+<body>
+<nav class="entete"> <!--creation de l'entete-->
+        <div class="logo">
+    <img src="Assets/logo_declic.png" alt="Logo Le Déclic"> <!--ajout du logo-->
+    <div> <strong>Le Déclic</strong><br>
+        <small>Réduire la fracture numérique</small>
+    </div>
+</div>
+        <a href="#" class="bouton-contact">Nous contacter</a> <!--creation d'un lien-->
+    </nav>
+
+    <header class="main-title"> 
+        <h1>Vos démarches/outils du quotidien expliqués en vidéo</h1>
+        
+        <div class="search-container">  <!--utilisation de div pour grouper en bloc-->
+            <input type="text" placeholder="Je cherche à..." class="search-input"> <!--input : La zone où l'utilisateur écrit.--> <!--placeholder : Le texte gris fantôme-->
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Toutes les catégories</h2>
+        
+        <div class="MEP-carte">
+            <div class="card js-trigger" data-target="sante">
+                <div class="icon-circle">❤️</div>
+                <h3>Santé</h3>
+                <p>Carte vitale, rendez-vous médecin...</p>
+            </div>
+
+            <div class="card js-trigger" data-target="emploi">
+                <div class="icon-circle">💼</div>
+                <h3>Emploi</h3>
+                <p>CV, Pôle Emploi, entretiens...</p>
+            </div>
+
+            <div class="card js-trigger" data-target="papiers">
+                <div class="icon-circle">📄</div>
+                <h3>Papiers</h3>
+                <p>CNI, passeport, actes...</p>
+            </div>
+
+            <div class="card js-trigger" data-target="logement">
+                <div class="icon-circle">🏠</div>
+                <h3>Logement</h3>
+                <p>APL, recherche, bail...</p>
+            </div>
+
+            <div class="card js-trigger" data-target="formation">
+                <div class="icon-circle">🎓</div>
+                <h3>Formation</h3>
+                <p>CPF, écoles, diplômes...</p>
+            </div>
+
+            <div class="card js-trigger" data-target="aide">
+                <div class="icon-circle">💳</div>
+                <h3>Aides & Droits</h3>
+                <p>RSA, CAF, prime d'activité...</p>
+            </div>
+
+        </div>
+
+    <section id="section-logement" class="section-videos" style="display: none;"> 
+        <div class="video-header">
+            <div>
+                <h2>Logement</h2>
+                <p>Tous les tutoriels pour trouver et gérer votre logement</p>
+            </div>
+            <a href="#" class="btn-masquer js-close" >Masquer</a>
+        </div>
+
+        <div class="MEP-carte">
+            <a href="video.html?id=apl-demande" style="text-decoration: none; color: inherit;">
+    <div class="card-video">
+        <div class="thumbnail">
+            <img src="https://via.placeholder.com/300x180" alt="Tuto APL"> 
+            <span class="duree">4 min</span>
+        </div>
+        <div class="video-content">
+            <h3>Demander les APL</h3>
+            <p class="description">Obtenir l'aide au logement</p>
+            <small>CAF • Justificatifs</small>
+            <div class="tags">
+                <span>APL</span> <span>Aide</span> <span>CAF</span>
+            </div>
+        </div>
+    </div>
+</a>
+            </div>
+
+            <div class="card-video">
+                <div class="thumbnail">
+                    <img src="https://via.placeholder.com/300x180" alt="Tuto HLM">
+                    <span class="duree">5 min</span>
+                </div>
+                <div class="video-content">
+                    <h3>Demander un logement social</h3>
+                    <p class="description">M'inscrire pour un HLM</p>
+                    <small>Demande en ligne • Justificatifs</small>
+                    <div class="tags">
+                        <span>HLM</span> <span>Social</span> <span>Demande</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="section-sante" class="section-videos" style="display: none;"> 
+        <div class="video-header">
+            <div>
+                <h2>Santé</h2>
+                <p>Tous les tutoriels pour votre santé</p>
+            </div>
+            <a href="#" class="btn-masquer js-close" >Masquer</a>
+        </div>
+
+        <div class="MEP-carte">
+            <div class="card-video">
+                <div class="thumbnail">
+                    <img src="https://via.placeholder.com/300x180" alt="Tuto APL"> 
+                    <span class="duree">4 min</span>
+                </div>  
+                <div class="video-content">
+                    <h3>Demander les APL</h3>
+                    <p class="description">Obtenir l'aide au logement</p>
+                    <small>CAF • Justificatifs</small>
+                    <div class="tags">
+                        <span>APL</span> <span>Aide</span> <span>CAF</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-video">
+                <div class="thumbnail">
+                    <img src="https://via.placeholder.com/300x180" alt="Tuto HLM">
+                    <span class="duree">5 min</span>
+                </div>
+                <div class="video-content">
+                    <h3>Demander un logement social</h3>
+                    <p class="description">M'inscrire pour un HLM</p>
+                    <small>Demande en ligne • Justificatifs</small>
+                    <div class="tags">
+                        <span>HLM</span> <span>Social</span> <span>Demande</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // 1. On sélectionne TOUS les déclencheurs et TOUTES les sections
+        const triggers = document.querySelectorAll('.js-trigger');
+        const allSections = document.querySelectorAll('.section-videos');
+
+        // 2. Pour chaque carte cliquable...
+        triggers.forEach(card => {
+            card.addEventListener('click', function() {
+                // On récupère le nom de la cible (ex: "sante" ou "logement")
+                const targetName = this.getAttribute('data-target');
+                const targetSection = document.getElementById('section-' + targetName);
+
+                if (targetSection) {
+                    // A. On ferme d'abord TOUT (pour ne pas avoir 2 sections ouvertes)
+                    allSections.forEach(sec => sec.style.display = 'none');
+
+                    // B. On affiche celle qu'on veut
+                    targetSection.style.display = 'block';
+                    
+                    // C. On scroll vers elle doucement
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // 3. Gestion intelligente des boutons "Masquer"
+        // (Cela marchera pour tous les boutons "Masquer", présents et futurs)
+        document.body.addEventListener('click', function(e) {
+            if (e.target.classList.contains('js-close')) {
+                e.preventDefault();
+                // On trouve la section parente et on la cache
+                e.target.closest('.section-videos').style.display = 'none';
+            }
+        });
+
+    });
+</script>
+    </body>
+</html> 

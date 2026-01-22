@@ -290,6 +290,12 @@ h2 {
         padding: 15px; /* Moins de marge à l'intérieur des cartes */
     }
     
+    .thumbnail { /*miniature: cadre qui entoure image*/
+        position: relative; /* Important pour placer la durée par dessus */
+        height: 180px;
+        background-color: #ddd;
+    }
+    
     .icon-circle {
         width: 40px;
         height: 40px;
@@ -308,5 +314,6 @@ h2 {
         gap: 10px;
     }
 }
+
 
 

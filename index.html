@@ -9,7 +9,7 @@
 <body>
     <nav class="entete"> <!--creation de l'entete-->
         <div class="logo">
-            <img src="logo_declic.png" alt="Logo Le Déclic"> <!--ajout du logo-->
+            <img src="Assets/logo_declic.png" alt="Logo Le Déclic"> <!--ajout du logo-->
             <div> <strong>Le Déclic</strong><br>
                 <small>Réduire la fracture numérique</small>
             </div>
@@ -69,16 +69,16 @@
 
         </div>
 
-    <section id="section-logement" class="section-videos" style="display: none;"> 
+    <section id="section-logement" class="section-videos" style="display: none;"> <!--section: indique que c'est un "chapitre" de la page; id: adresse de la zone; style: masquer par defaut-->
         <div class="video-header">
             <div>
                 <h2>Logement</h2>
                 <p>Tous les tutoriels pour trouver et gérer votre logement</p>
             </div>
-            <a href="#" class="btn-masquer js-close">Masquer</a>
+            <a href="#" class="btn-masquer js-close">Masquer</a> <!--bouton cliquable pour masquer-->
         </div>
 
-        <div class="MEP-carte" id="container-logement">
+        <div class="MEP-carte" id="container-logement"> <!--gere la grille et recoit contenu par script java-->
             </div>
 
     </section>
@@ -104,7 +104,7 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => { //securite: attend que la page soit chargee pour executer la suite
             
             // --- PARTIE 1 : LE GÉNÉRATEUR DE CARTES (Nouveau !) ---
             
@@ -112,16 +112,13 @@
             // Object.entries transforme ton catalogue en une liste utilisable
             for (const [idVideo, info] of Object.entries(catalogue)) {
                 
-                // 1. On cherche la boite correspondante (ex: container-logement)
-                const container = document.getElementById(`container-${info.categorie}`);
+                const container = document.getElementById(`container-${info.categorie}`); //tri des infos : recherche div correspondant
                 
-                // 2. Si la boite existe, on fabrique la carte HTML
-                if (container) {
+                if (container) { //verifie si la boite existe
                     // On prépare les petits tags (badges)
-                    // map() transforme la liste ["a", "b"] en "<span>a</span><span>b</span>"
-                    const tagsHTML = info.tags.map(tag => `<span>${tag}</span>`).join(' ');
+                    const tagsHTML = info.tags.map(tag => `<span>${tag}</span>`).join(' ');// map() transforme la liste ["a", "b"] en "<span>a</span><span>b</span>"
 
-                    // On crée le HTML de la carte
+                    // on cree le HTML de la carte
                     const carteHTML = `
                         <a href="video.html?id=${idVideo}" style="text-decoration: none; color: inherit;">
                             <div class="card-video">
@@ -146,39 +143,41 @@
             }
 
 
-            // --- PARTIE 2 : TA NAVIGATION (Ancien script conservé) ---
-            
-            const triggers = document.querySelectorAll('.js-trigger');
-            const allSections = document.querySelectorAll('.section-videos');
+// --- PARTIE 2 : LA NAVIGATION ---
+        
+        const triggers = document.querySelectorAll('.js-trigger'); //recupere tous les boutons
+        const allSections = document.querySelectorAll('.section-videos'); //recupere les zones cachees
 
-            triggers.forEach(card => {
-                card.addEventListener('click', function() {
-                    const targetName = this.getAttribute('data-target');
-                    const targetSection = document.getElementById('section-' + targetName);
+        triggers.forEach(card => {
+            card.addEventListener('click', function() { //quand on clique :
+                const targetName = this.getAttribute('data-target'); //recupere mot-cle de la categorie
+                const targetSection = document.getElementById('section-' + targetName); //trouve dans la page la section correspondante à l'id
 
-                    if (targetSection) {
-                        // 1. On ferme tout et on ouvre la cible
-                        allSections.forEach(sec => sec.style.display = 'none');
+                if (targetSection) {
+                    const isDejaOuvert = targetSection.style.display === 'block'; //on regarde si cette section est deja ouverte
+
+                    allSections.forEach(sec => sec.style.display = 'none'); //ferme toutes les sections (comme ça on repart à zéro)
+
+                    if (!isDejaOuvert) { //logique de bascule
                         targetSection.style.display = 'block';
 
-                        // 2. On attend 50 millisecondes (invisible pour l'œil) avant de scroller
-                        setTimeout(() => {
+                        setTimeout(() => { //attend un tout petit peu et on scrolle
                             targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }, 50);
                     }
-                });
-            });
-
-            document.body.addEventListener('click', function(e) {
-                if (e.target.classList.contains('js-close')) {
-                    e.preventDefault();
-                    e.target.closest('.section-videos').style.display = 'none';
                 }
             });
+        });
+
+        // bouton "Masquer"
+        document.body.addEventListener('click', function(e) { //document.body: partie visible par utilisateur de la page; addEventListener('click', ...): enregistre l'ensemble des clicks; function(e): rapport d'incident, fonction se declence au click avec pour event 'e'
+            if (e.target.classList.contains('js-close')) { //filtre : remonte à la balise et regarde si l'element clique porte le badge 'js-close'
+                e.preventDefault(); //bloque comportement par defaut: evite la balise '#' qui fait remonter en haut de la page
+                e.target.closest('.section-videos').style.display = 'none'; //.closest('.section-videos'): remontre l'abre parent jusqu'à 'section-videos'; puis cache la section
+            }
+        });
 
         });
     </script>
 </body>
 </html> 
-
-

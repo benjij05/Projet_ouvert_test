@@ -21,52 +21,61 @@
     <header class="main-title"> 
         <h1>Vos démarches/outils du quotidien expliqués en vidéo</h1>
         
-        <div class="search-container">  <!--utilisation de div pour grouper en bloc-->
-            <input type="text" placeholder="Je cherche à..." class="search-input"> <!--input : La zone où l'utilisateur écrit.--> <!--placeholder : Le texte gris fantôme-->
+        <div class="search-container"><!--utilisation de div pour grouper en bloc-->
+            <input type="text" id="search-input" placeholder="Je cherche à..." class="search-input"> <!--input : La zone où l'utilisateur écrit.--> <!--placeholder : Le texte gris fantôme-->
         </div>
 
     </header>
 
     <main class="container">
-        <h2>Toutes les catégories</h2>
+
+        <div id="zone-recherche" style="display: none;">
+            <h2>Résultats de la recherche <span id="compteur-resultats" style="font-size: 0.8rem; color: #777;"></span></h2>
+            <div class="MEP-carte" id="container-resultats">
+                </div>
+            <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+        </div>
+
+        <div id="zone-categories"> <h2>Toutes les catégories</h2>
         
-        <div class="MEP-carte">
-            <div class="card js-trigger" data-target="sante">
-                <div class="icon-circle">❤️</div>
-                <h3>Santé</h3>
-                <p>Carte vitale, rendez-vous médecin...</p>
-            </div>
+            <div class="MEP-carte">
+                <div class="card js-trigger" data-target="sante">
+                    <div class="icon-circle">❤️</div>
+                    <h3>Santé</h3>
+                    <p>Carte vitale, rendez-vous médecin...</p>
+                </div>
 
-            <div class="card js-trigger" data-target="emploi">
-                <div class="icon-circle">💼</div>
-                <h3>Emploi</h3>
-                <p>CV, Pôle Emploi, entretiens...</p>
-            </div>
+                <div class="card js-trigger" data-target="emploi">
+                    <div class="icon-circle">💼</div>
+                    <h3>Emploi</h3>
+                    <p>CV, Pôle Emploi, entretiens...</p>
+                </div>
 
-            <div class="card js-trigger" data-target="papiers">
-                <div class="icon-circle">📄</div>
-                <h3>Papiers</h3>
-                <p>CNI, passeport, actes...</p>
-            </div>
+                <div class="card js-trigger" data-target="papiers">
+                    <div class="icon-circle">📄</div>
+                    <h3>Papiers</h3>
+                    <p>CNI, passeport, actes...</p>
+                </div>
 
-            <div class="card js-trigger" data-target="logement">
-                <div class="icon-circle">🏠</div>
-                <h3>Logement</h3>
-                <p>APL, recherche, bail...</p>
-            </div>
+                <div class="card js-trigger" data-target="logement">
+                    <div class="icon-circle">🏠</div>
+                    <h3>Logement</h3>
+                    <p>APL, recherche, bail...</p>
+                </div>
 
-            <div class="card js-trigger" data-target="formation">
-                <div class="icon-circle">🎓</div>
-                <h3>Formation</h3>
-                <p>CPF, écoles, diplômes...</p>
-            </div>
+                <div class="card js-trigger" data-target="formation">
+                    <div class="icon-circle">🎓</div>
+                    <h3>Formation</h3>
+                    <p>CPF, écoles, diplômes...</p>
+                </div>
 
-            <div class="card js-trigger" data-target="aide">
-                <div class="icon-circle">💳</div>
-                <h3>Aides & Droits</h3>
-                <p>RSA, CAF, prime d'activité...</p>
-            </div>
+                <div class="card js-trigger" data-target="aide">
+                    <div class="icon-circle">💳</div>
+                    <h3>Aides & Droits</h3>
+                    <p>RSA, CAF, prime d'activité...</p>
+                </div>
 
+            </div>
         </div>
 
     <section id="section-logement" class="section-videos" style="display: none;"> <!--section: indique que c'est un "chapitre" de la page; id: adresse de la zone; style: masquer par defaut-->
@@ -177,8 +186,74 @@
             }
         });
 
+    // --- PARTIE 3 : LE MOTEUR DE RECHERCHE ---
+
+        const searchInput = document.getElementById('search-input');
+        const zoneRecherche = document.getElementById('zone-recherche');
+        const containerResultats = document.getElementById('container-resultats');
+        const zoneCategories = document.getElementById('zone-categories');
+        const compteurResultats = document.getElementById('compteur-resultats');
+
+        // On écoute ce que l'utilisateur tape
+        searchInput.addEventListener('input', (e) => {
+            const texteRecherche = e.target.value.toLowerCase(); // On met tout en minuscule pour comparer (CAF = caf)
+
+            // SCENARIO 1 : Le champ est vide -> On remet l'affichage normal
+            if (texteRecherche === "") {
+                zoneRecherche.style.display = 'none';
+                zoneCategories.style.display = 'block';
+                return; // On arrête la fonction ici
+            }
+
+            // SCENARIO 2 : Il y a du texte -> On lance la recherche
+            zoneRecherche.style.display = 'block';
+            zoneCategories.style.display = 'none';
+            containerResultats.innerHTML = ''; // On vide les anciens résultats
+
+            let nombreTrouve = 0;
+
+            // On cherche dans tout le catalogue
+            for (const [idVideo, info] of Object.entries(catalogue)) {
+                // On vérifie si le texte est dans le TITRE ou dans les TAGS
+                const titreOk = info.titre.toLowerCase().includes(texteRecherche);
+                // info.tags est une liste, on vérifie si l'un des tags contient le texte
+                const tagOk = info.tags.some(tag => tag.toLowerCase().includes(texteRecherche));
+
+                if (titreOk || tagOk) {
+                    nombreTrouve++;
+                    
+                    // On recycle ton code de création de carte (copier-coller intelligent)
+                    const tagsHTML = info.tags.map(tag => `<span>${tag}</span>`).join(' ');
+                    
+                    const carteHTML = `
+                        <a href="video.html?id=${idVideo}" style="text-decoration: none; color: inherit;">
+                            <div class="card-video">
+                                <div class="thumbnail">
+                                    <img src="https://img.youtube.com/vi/${info.youtubeId}/hqdefault.jpg" alt="${info.titre}">
+                                    <span class="duree">${info.duree}</span>
+                                </div>
+                                <div class="video-content">
+                                    <h3>${info.titre}</h3>
+                                    <p class="description">${info.description}</p>
+                                    <div class="tags">${tagsHTML}</div>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    containerResultats.innerHTML += carteHTML;
+                }
+            }
+
+            // Petit détail UX : Afficher combien on a trouvé
+            if (nombreTrouve === 0) {
+                containerResultats.innerHTML = '<p>Aucun résultat trouvé pour cette recherche.</p>';
+                compteurResultats.innerText = '';
+            } else {
+                compteurResultats.innerText = `(${nombreTrouve} vidéo${nombreTrouve > 1 ? 's' : ''})`;
+            }
+        });
+
         });
     </script>
 </body>
 </html> 
-

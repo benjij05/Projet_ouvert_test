@@ -175,7 +175,7 @@ h2 {
 /* Zone Image */
 .thumbnail { /*miniature: cadre qui entoure image*/
     position: relative; /* Important pour placer la durée par dessus */
-    height: 180px;
+    height: 320px;
     background-color: #ddd;
 }
 
@@ -308,4 +308,5 @@ h2 {
         gap: 10px;
     }
 }
+
 

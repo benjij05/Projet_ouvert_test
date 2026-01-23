@@ -17,10 +17,11 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
         image: "https://via.placeholder.com/300x180",
         tags: ["HLM", "Social", "Demande"]
     },
+    
     "compte-ameli": {
         titre: "Créer son compte Ameli",
         description: "Accédez à vos remboursements de santé en ligne.",
-        youtubeId: "id_video_sante",
+        youtubeId: "NsV1GFRQWRY",
         duree: "3 min",
         categorie: "sante",
         image: "https://via.placeholder.com/300x180",
@@ -30,12 +31,10 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
     "france-travail": {
         titre: "Créer son compte france-travail",
         description: "Recheercehr un emploi",
-        youtubeId: "s_45IBSZ-Is",
+        youtubeId: "10igmNnvW3M",
         duree: "3 min",
         categorie: "emploi",
         image: "https://via.placeholder.com/300x180",
         tags: ["Travail", "Emploi", "Compte"]
     }
 };
-};
-

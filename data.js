@@ -25,5 +25,17 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
         categorie: "sante",
         image: "https://via.placeholder.com/300x180",
         tags: ["Sécu", "Ameli", "Compte"]
+    },
+
+    "france-travail": {
+        titre: "Créer son compte france-travail",
+        description: "Recheercehr un emploi",
+        youtubeId: "s_45IBSZ-Is",
+        duree: "3 min",
+        categorie: "emploi",
+        image: "https://via.placeholder.com/300x180",
+        tags: ["Travail", "Emploi", "Compte"]
     }
 };
+};
+

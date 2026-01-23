@@ -282,14 +282,10 @@ h2 {
         gap: 10px; /* Espace réduit entre les cartes */
     }
 
-    .section-videos .MEP-carte {
-        grid-template-columns: 1fr; /* 1fr = 1 seule fraction = 1 colonne */
-    }
-
     .card {
         padding: 15px; /* Moins de marge à l'intérieur des cartes */
     }
-    
+
     .thumbnail { /*miniature: cadre qui entoure image*/
         position: relative; /* Important pour placer la durée par dessus */
         height: 180px;
@@ -314,6 +310,3 @@ h2 {
         gap: 10px;
     }
 }
-
-
-

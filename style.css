@@ -281,7 +281,11 @@ h2 {
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 10px; /* Espace réduit entre les cartes */
     }
-
+    
+    .section-videos .MEP-carte, #zone-recherche .MEP-carte {
+        grid-template-columns: 1fr;
+    }
+    
     .card {
         padding: 15px; /* Moins de marge à l'intérieur des cartes */
     }
@@ -310,3 +314,4 @@ h2 {
         gap: 10px;
     }
 }
+

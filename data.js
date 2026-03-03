@@ -2,7 +2,7 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
     "apl-demande": { //Clé/ID pour identifier la vidéo
         titre: "Demander les APL",
         description: "Tutoriel complet pour remplir votre dossier CAF.",
-        youtubeId: "jHeQFMSogEY",
+        youtubeId: "RS8KvW3QAIk",
         duree: "4 min",
         categorie: "logement",  // Doit correspondre à l'ID dans le HTML
         image: "https://via.placeholder.com/300x180", //image miniature

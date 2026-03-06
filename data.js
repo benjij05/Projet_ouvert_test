@@ -3,7 +3,7 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
     "permis-conduire": { //Clé/ID pour identifier la vidéo
         titre: "ANTS - Démarche Permis de conduire",
         description: "Obtenir son numéro NEPH et s'inscrire au permis sur l'ANTS.",
-        youtubeId: "RS8KvW3QAIk",
+        youtubeId: "WDu6ABl7Ksg",
         duree: "5 min",
         categorie: "papiers",  // Doit correspondre à l'ID dans le HTML
         image: "https://via.placeholder.com/300x180", //image miniature
@@ -27,7 +27,7 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
         duree: "2 min",
         categorie: "papiers",
         image: "https://via.placeholder.com/300x180",
-        tags: ["ANTS", "FranceConnect", "Démarches"]
+        tags: ["ANTS", "FranceConnect", "Démarches", "Compte"]
     },
     //compte google
     "compte-google": {

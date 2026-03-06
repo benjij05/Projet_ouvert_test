@@ -1,40 +1,42 @@
 const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
-    "apl-demande": { //Clé/ID pour identifier la vidéo
-        titre: "Demander les APL",
-        description: "Tutoriel complet pour remplir votre dossier CAF.",
+    //video permis de conduire
+    "permis-conduire": { //Clé/ID pour identifier la vidéo
+        titre: "ANTS - Démarche Permis de conduire",
+        description: "Obtenir son numéro NEPH et s'inscrire au permis sur l'ANTS.",
         youtubeId: "RS8KvW3QAIk",
-        duree: "4 min",
-        categorie: "logement",  // Doit correspondre à l'ID dans le HTML
-        image: "https://via.placeholder.com/300x180", //image miniature
-        tags: ["APL", "CAF", "Aide"] // les badges
-    },
-    "hlm-inscription": {
-        titre: "Demander un logement social",
-        description: "Les étapes pour s'inscrire sur le fichier national.",
-        youtubeId: "BJwwu3JOKA0",
         duree: "5 min",
-        categorie: "logement",
-        image: "https://via.placeholder.com/300x180",
-        tags: ["HLM", "Social", "Demande"]
+        categorie: "papiers",  // Doit correspondre à l'ID dans le HTML
+        image: "https://via.placeholder.com/300x180", //image miniature
+        tags: ["Permis", "ANTS", "NEPH"] // les badges
     },
-    
-    "compte-ameli": {
-        titre: "Créer son compte Ameli",
-        description: "Accédez à vos remboursements de santé en ligne.",
-        youtubeId: "NsV1GFRQWRY",
-        duree: "3 min",
-        categorie: "sante",
-        image: "https://via.placeholder.com/300x180",
-        tags: ["Sécu", "Ameli", "Compte"]
-    },
-
-    "france-travail": {
-        titre: "Créer son compte france-travail",
-        description: "Recheercehr un emploi",
-        youtubeId: "10igmNnvW3M",
+    //video LinkedIn
+    "compte-linkedin": {
+        titre: "Tout savoir sur LinkedIn",
+        description: "Apprenez à créer votre compte, optimiser votre profil et utiliser le réseau pour trouver un emploi.",
+        youtubeId: "0a6GMlbIONc",
         duree: "3 min",
         categorie: "emploi",
         image: "https://via.placeholder.com/300x180",
-        tags: ["Travail", "Emploi", "Compte"]
+        tags: ["LinkedIn", "Emploi", "Réseau"]
+    },
+    //Compte ANTS
+    "connexion-ants": {
+        titre: "Connexion à ANTS",
+        description: "Se connecter à l'ANTS via FranceConnect et découvrir le tableau de bord.",
+        youtubeId: "9rgX9UpG4M4",
+        duree: "2 min",
+        categorie: "papiers",
+        image: "https://via.placeholder.com/300x180",
+        tags: ["ANTS", "FranceConnect", "Démarches"]
+    },
+    //compte google
+    "compte-google": {
+        titre: "Compte Google et Applications",
+        description: "Créer une adresse Gmail et maîtriser Drive, Docs et Sheets.",
+        youtubeId: "dOQfeTfStL8",
+        duree: "2 min",
+        categorie: "formation",
+        image: "https://via.placeholder.com/300x180",
+        tags: ["Google", "Gmail", "Bureautique"]
     }
 };

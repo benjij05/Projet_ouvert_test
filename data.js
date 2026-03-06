@@ -32,7 +32,7 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
     //compte google
     "compte-google": {
         titre: "Compte Google et Applications",
-        description: "Créer une adresse Gmail et maîtriser Drive, Docs et Sheets.",
+        description: "Créer une adresse Gmail et découvrir les applications Google.",
         youtubeId: "dOQfeTfStL8",
         duree: "2 min",
         categorie: "formation",

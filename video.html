@@ -80,10 +80,52 @@
             document.getElementById('player-youtube').src = "https://www.youtube.com/embed/" + info.youtubeId; //cration du lien youtube et chargement de la video avec ".src"
             document.title = info.titre + " - Le Déclic";//Chang le titre de la page
 
+            // Gestion du lien officiel
             if (info.lienOfficiel) {
                 document.getElementById('zone-action').style.display = 'block'; // On affiche la zone
                 document.getElementById('lien-officiel').href = info.lienOfficiel; // On met le bon lien
             }
+
+            const btnVu = document.getElementById('btn-vu');
+            
+            // On regarde dans la mémoire si la vidéo a déjà été cliquée
+            let videosVues = JSON.parse(localStorage.getItem('declic_vues')) || [];
+
+            // Petite fonction pratique pour mettre à jour le design du bouton
+            function actualiserDesignBouton() {
+                if (videosVues.includes(videoId)) {
+                    // État "Déjà vu"
+                    btnVu.innerText = "✅ Vidéo vue (Annuler)";
+                    btnVu.style.backgroundColor = "#95a5a6"; // On le met en gris
+                    btnVu.style.opacity = "0.8";
+                } else {
+                    // État "Pas encore vu"
+                    btnVu.innerText = "Marquer comme vue";
+                    btnVu.style.backgroundColor = "#2ecc71"; // On remet le beau vert
+                    btnVu.style.opacity = "1";
+                }
+            }
+
+            // 1. Au chargement de la page, on applique le bon design
+            actualiserDesignBouton();
+
+            // 2. Quand on clique sur le bouton (l'interrupteur)
+            btnVu.addEventListener('click', () => {
+                if (videosVues.includes(videoId)) {
+                    // SCÉNARIO A : Elle était déjà vue, on l'ENLÈVE de la liste
+                    // filter() garde toutes les vidéos SAUF celle qu'on est en train de regarder
+                    videosVues = videosVues.filter(id => id !== videoId); 
+                } else {
+                    // SCÉNARIO B : Elle n'était pas vue, on l'AJOUTE à la liste
+                    videosVues.push(videoId);
+                }
+
+                // On sauvegarde la nouvelle liste (mise à jour) dans la mémoire
+                localStorage.setItem('declic_vues', JSON.stringify(videosVues));
+                
+                // On met à jour le visuel immédiatement
+                actualiserDesignBouton();
+            });
 
         } else {
             document.getElementById('titre-video').innerText = "Vidéo introuvable";//si on ne trouve pas la video affiche ce texte à la place

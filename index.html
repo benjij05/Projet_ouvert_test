@@ -170,24 +170,29 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => { //securite: attend que la page soit chargee pour executer la suite
+
+            // On récupère la mémoire des vidéos vues
+            const videosVues = JSON.parse(localStorage.getItem('declic_vues')) || [];
             
-            // --- PARTIE 1 : LE GÉNÉRATEUR DE CARTES (Nouveau !) ---
+            // --- PARTIE 1 : LE GÉNÉRATEUR DE CARTES  ---
             
             // On boucle sur chaque vidéo du catalogue
             // Object.entries transforme ton catalogue en une liste utilisable
             for (const [idVideo, info] of Object.entries(catalogue)) {
-                
                 const container = document.getElementById(`container-${info.categorie}`); //tri des infos : recherche div correspondant
                 
                 if (container) { //verifie si la boite existe
                     // On prépare les petits tags (badges)
                     const tagsHTML = info.tags.map(tag => `<span>${tag}</span>`).join(' ');// map() transforme la liste ["a", "b"] en "<span>a</span><span>b</span>"
 
+                    const badgeHTML = videosVues.includes(idVideo) ? `<span class="badge-vu">✅ Vu</span>` : ''; // On vérifie si l'ID est dans la mémoire. Si oui, on prépare le badge.
+
                     // on cree le HTML de la carte
                     const carteHTML = `
                         <a href="video.html?id=${idVideo}" style="text-decoration: none; color: inherit;">
                             <div class="card-video">
                                 <div class="thumbnail">
+                                    ${badgeHTML}
                                     <img src="https://img.youtube.com/vi/${info.youtubeId}/hqdefault.jpg" alt="${info.titre}">
                                     <span class="duree">${info.duree}</span>
                                 </div>

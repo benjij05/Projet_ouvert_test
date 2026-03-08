@@ -94,6 +94,12 @@ h2 {
     gap: 20px; /* Espace entre les cartes */
 }
 
+/* Grille spécifique pour les vidéos : forcé à 2 colonnes max */
+.section-videos .MEP-carte, 
+#zone-recherche .MEP-carte {
+    grid-template-columns: repeat(2, 1fr);
+}
+
 /* Le design d'une carte individuelle */
 .card {
     background: white;
@@ -238,6 +244,20 @@ h2 {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* --- BADGE DE PROGRESSION --- */
+.badge-vu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #2ecc71; /* Un beau vert pour dire "Validé" */
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 2; /* Pour être sûr qu'il passe par dessus l'image */
+}
+
 /* =========================================
    VERSION MOBILE (Pour les écrans < 768px)
    ========================================= */
@@ -276,8 +296,6 @@ h2 {
 
     /* 3. La Grille de Catégories (2 par ligne) */
     .MEP-carte {
-        /* On change la règle magique pour accepter des cartes plus petites */
-        /* Avant : minmax(300px, 1fr) -> Maintenant : minmax(140px, 1fr) */
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 10px; /* Espace réduit entre les cartes */
     }

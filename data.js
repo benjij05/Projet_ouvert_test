@@ -7,7 +7,8 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
         duree: "5 min",
         categorie: "papiers",  // Doit correspondre à l'ID dans le HTML
         image: "https://via.placeholder.com/300x180", //image miniature
-        tags: ["Permis", "ANTS", "NEPH"] // les badges
+        tags: ["Permis", "ANTS", "NEPH"], // les badges
+        lienOfficiel: "https://permisdeconduire.ants.gouv.fr/"
     },
     //video LinkedIn
     "compte-linkedin": {
@@ -17,7 +18,8 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
         duree: "3 min",
         categorie: "emploi",
         image: "https://via.placeholder.com/300x180",
-        tags: ["LinkedIn", "Emploi", "Réseau"]
+        tags: ["LinkedIn", "Emploi", "Réseau"],
+        lienOfficiel: "https://www.linkedin.com/"
     },
     //Compte ANTS
     "connexion-ants": {
@@ -27,7 +29,8 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
         duree: "2 min",
         categorie: "papiers",
         image: "https://via.placeholder.com/300x180",
-        tags: ["ANTS", "FranceConnect", "Démarches", "Compte"]
+        tags: ["ANTS", "FranceConnect", "Démarches", "Compte"],
+        lienOfficiel: "https://ants.gouv.fr/"
     },
     //compte google
     "compte-google": {
@@ -37,6 +40,7 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
         duree: "2 min",
         categorie: "formation",
         image: "https://via.placeholder.com/300x180",
-        tags: ["Google", "Gmail", "Bureautique"]
+        tags: ["Google", "Gmail", "Bureautique"],
+        lienOfficiel: "https://accounts.google.com/"
     }
 };

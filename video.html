@@ -50,6 +50,14 @@
         <div class="card">
             <h3>À propos de cette démarche</h3>
             <p id="desc-video">Description en cours de chargement...</p>
+            
+            <div id="zone-action" style="margin-top: 20px; display: none;">
+                <a href="#" id="lien-officiel" target="_blank" class="bouton-contact" style="display: inline-block;">Faire ma démarche en ligne</a>
+            </div>
+
+            <button id="btn-vu" class="bouton-contact" style="background-color: #2ecc71; margin-top: 15px; border: none; cursor: pointer;">
+                Marquer comme vue
+            </button>
         </div>
     </main>
 
@@ -71,6 +79,12 @@
             // On construit le lien YouTube
             document.getElementById('player-youtube').src = "https://www.youtube.com/embed/" + info.youtubeId; //cration du lien youtube et chargement de la video avec ".src"
             document.title = info.titre + " - Le Déclic";//Chang le titre de la page
+
+            if (info.lienOfficiel) {
+                document.getElementById('zone-action').style.display = 'block'; // On affiche la zone
+                document.getElementById('lien-officiel').href = info.lienOfficiel; // On met le bon lien
+            }
+
         } else {
             document.getElementById('titre-video').innerText = "Vidéo introuvable";//si on ne trouve pas la video affiche ce texte à la place
         }

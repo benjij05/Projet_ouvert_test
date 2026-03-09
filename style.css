@@ -79,7 +79,7 @@ h1 {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0px;
+    padding-bottom: 50px; /* 👈 Ajoute une marge de sécurité en bas de chaque page */
 }
 
 h2 {
@@ -405,6 +405,11 @@ h2 {
     color: #555;
     line-height: 1.6;
     border-top: 0 solid #eee;
+}
+.fleche {
+    margin-left: 15px; /* Évite que la flèche ne colle au texte */
+    font-size: 0.8rem;
+    color: #999;
 }
 
 /* Classe ajoutée par le JavaScript quand on ouvre */

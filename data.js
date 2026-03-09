@@ -38,9 +38,20 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
         description: "Créer une adresse Gmail et découvrir les applications Google.",
         youtubeId: "dOQfeTfStL8",
         duree: "2 min",
-        categorie: "formation",
+        categorie: "outils",
         image: "https://via.placeholder.com/300x180",
         tags: ["Google", "Gmail", "Bureautique"],
         lienOfficiel: "https://accounts.google.com/"
+    },
+    //video rédiger un mail
+    "rediger-mail-gmail": {
+        titre: "Rédiger un Mail (Gmail)",
+        description: "Apprendre à rédiger et envoyer correctement un e-mail avec Gmail (Destinataire, CC, CCI, Objet et pièces jointes).",
+        youtubeId: "aZ3A3s-_JDg", 
+        duree: "3 min",
+        categorie: "outils",
+        image: "https://via.placeholder.com/300x180",
+        tags: ["Google", "Gmail", "Bureautique", "Email"],
+        lienOfficiel: "https://mail.google.com/"
     }
 };

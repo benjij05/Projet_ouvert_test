@@ -14,7 +14,7 @@
                 <small>Réduire la fracture numérique</small>
             </div>
         </div>
-        <a href="mailto:ledeclic.numpourtous@gmail.com?subject=Besoin d'aide - Le Déclic" class="bouton-contact">Nous contacter</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpw6yxnNbNqYryXsRxxkY8yEDxmKuPclJa8gB1R_F2c3tpLA/viewform?usp=publish-editor" class="bouton-contact">Nous contacter</a>
 
     </nav>
 
@@ -76,6 +76,12 @@
                 </div>
 
             </div>
+        </div>
+
+    <div id="zone-tutos-populaires" style="margin-bottom: 40px;">
+            <h2> Les tutos les plus regardés</h2>
+            <div class="carousel" id="container-carousel">
+                </div>
         </div>
 
     <section id="section-logement" class="section-videos" style="display: none;"> <!--section: indique que c'est un "chapitre" de la page; id: adresse de la zone; style: masquer par defaut-->
@@ -174,6 +180,42 @@
             // On récupère la mémoire des vidéos vues
             const videosVues = JSON.parse(localStorage.getItem('declic_vues')) || [];
             
+        // --- LE CAROUSEL DES VIDÉOS POPULAIRES ---
+            const containerCarousel = document.getElementById('container-carousel');
+            
+            // Ici, tu mets les ID des vidéos que tu veux afficher dans le carrousel !
+            const videosPopulaires = ["permis-conduire","compte-linkedin", "connexion-ants", "compte-google","rediger-mail-gmail"];
+
+            videosPopulaires.forEach(idVideo => {
+                const info = catalogue[idVideo];
+                if (info && containerCarousel) {
+                    
+                    // On prépare les badges comme d'habitude
+                    const tagsHTML = info.tags.map(tag => `<span>${tag}</span>`).join(' ');
+                    const badgeHTML = videosVues.includes(idVideo) ? `<span class="badge-vu">✅ Vu</span>` : '';
+                    
+                    const carteHTML = `
+                        <a href="video.html?id=${idVideo}" style="text-decoration: none; color: inherit;">
+                            <div class="card-video">
+                                <div class="thumbnail">
+                                    ${badgeHTML}
+                                    <img src="https://img.youtube.com/vi/${info.youtubeId}/hqdefault.jpg" alt="${info.titre}">
+                                    <span class="duree">${info.duree}</span>
+                                </div>
+                                <div class="video-content">
+                                    <h3>${info.titre}</h3>
+                                    <p class="description">${info.description}</p>
+                                    <div class="tags">${tagsHTML}</div>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    containerCarousel.innerHTML += carteHTML;
+                }
+            });
+
+
+
             // --- PARTIE 1 : LE GÉNÉRATEUR DE CARTES  ---
             
             // On boucle sur chaque vidéo du catalogue

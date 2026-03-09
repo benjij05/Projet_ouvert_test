@@ -44,7 +44,7 @@ body { /*les règles de base : police,couleur */
 /* 2. Le titre principal (Recherche) */
 .main-title {
     text-align: center;
-    padding: 60px 20px;
+    padding: 0px 20px;
 }
 
 h1 {
@@ -79,7 +79,7 @@ h1 {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px;
 }
 
 h2 {
@@ -282,7 +282,7 @@ h2 {
 
     /* 2. Le Titre et la Recherche */
     .main-title {
-        padding: 30px 15px; /* Moins d'espace vide autour */
+        padding: 0px 15px; /* Moins d'espace vide autour */
     }
 
     h1 {

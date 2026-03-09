@@ -9,6 +9,7 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
         image: "https://via.placeholder.com/300x180", //image miniature
         tags: ["Permis", "ANTS", "NEPH"], // les badges
         lienOfficiel: "https://permisdeconduire.ants.gouv.fr/",
+        documents: ["Pièce d'identité", "Justificatif de domicile", "Photo numérique"],
         // --- La FAQ ---
         faq: [
             { 
@@ -73,6 +74,7 @@ const catalogue = { //création d'une variable, fonctionne comme un dictionnaire
         image: "https://via.placeholder.com/300x180",
         tags: ["Google", "Gmail", "Bureautique"],
         lienOfficiel: "https://accounts.google.com/",
+        documents: ["Un numéro de téléphone portable"],
         faq: [
             { 
                 question: "Est-ce que c'est gratuit ?", 
